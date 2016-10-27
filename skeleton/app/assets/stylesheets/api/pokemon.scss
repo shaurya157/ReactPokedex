@@ -6,6 +6,7 @@ $grey: #747474;
 $screen: #d1ccb6;
 $red: #d43316;
 
+
 .pokedex {
 	display: flex;
 	padding: 20px 0 0 0;
@@ -14,6 +15,8 @@ $red: #d43316;
 	> ul {
 		padding: 20px 10px 0 0;
 		width: 300px;
+		height: calc(100% - 10px);
+		overflow: scroll;
 	}
 }
 
@@ -35,11 +38,29 @@ $red: #d43316;
 
 }
 
-.pokemon-detail{
-	background: $grey;
-	color: black;
-	position:fixed;
-	display:flex;
-	align-content: flex-end;
-	margin-left: 310px;
+.pokemon-detail {
+	display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position:relative;
+	background: $screen;
+  border: 40px solid #111;
+  border-radius: 20px;
+	padding: 25px;
+	outline: 10px solid $red;
+	overflow: scroll;
+
+	ul {
+			text-align: center;
+		li {
+			font-size: 20px;
+			padding: 10px 0;
+			color: $black;
+		}
+		.error {
+			font-size: 12px;
+			color: $red;
+		}
+	}
 }

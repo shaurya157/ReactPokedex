@@ -8,6 +8,7 @@ const PokemonIndexItem = (props) => {
   return(
     <li className='single-pokemon'
       onClick= {handleClick(`/pokemon/${props.pokemon.id}`)}>
+      {props.idx}
       <img src={props.pokemon.image_url}></img>
       {props.pokemon.name}
     </li>

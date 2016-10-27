@@ -4,15 +4,15 @@ import PokemonDetailContainer from './pokemon_detail_container';
 
 export const PokemonIndex = ({pokemon, children}) => {
 
-  let pokedex = pokemon.map(poke => (
-      <PokemonIndexItem key={poke.id} pokemon={poke} />
+  let pokedex = pokemon.map((poke, idx) => (
+      <PokemonIndexItem key={poke.id} pokemon={poke} idx={idx + 1}/>
   ));
 
   return (
     <section className="pokedex">
-      <ol className='poke-list'>
+      <ul className='poke-list'>
         {pokedex}
-      </ol>
+      </ul>
 
       {children}
   </section>

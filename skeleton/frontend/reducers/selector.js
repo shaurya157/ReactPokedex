@@ -7,3 +7,7 @@ export const selectAllPokemon = (state) => {
 export const selectOnePokemon = (state) => {
   return values(state.pokemonDetail);
 };
+
+export const selectPokemonItem = (state, itemId) => {
+  return values(state.pokemonDetail.itemId);
+};
