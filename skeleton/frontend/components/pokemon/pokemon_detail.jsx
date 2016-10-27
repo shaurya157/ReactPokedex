@@ -1,7 +1,12 @@
 import React from 'react';
+import {withRouter} from 'react-router';
 
-export const PokemonDetail = ({pokemonDetail, children}) => {
-  // console.log(pokemonDetail);
+const PokemonDetail = ({pokemonDetail, children, router}) => {
+
+  const handleClick = (url) => event => {
+    router.push(url);
+  };
+
   return (
     <section className="pokemon-detail">
       <h1>{pokemonDetail.name}</h1>
@@ -11,6 +16,9 @@ export const PokemonDetail = ({pokemonDetail, children}) => {
         <li>{pokemonDetail.defense}</li>
         <li>{pokemonDetail.poke_type}</li>
         <li>{pokemonDetail.moves.join(', ')}</li>
+        <ul>
+          {pokemonDetail.items.map((el, idx) => <li key={el.id} onClick={handleClick(`pokemon/${pokemonDetail.id}/item/${el.id}`)}><img src={el.image_url}></img></li>)}
+        </ul>
       </ul>
       {children}
 
@@ -18,3 +26,5 @@ export const PokemonDetail = ({pokemonDetail, children}) => {
     </section>
   );
 };
+
+export default withRouter(PokemonDetail);
