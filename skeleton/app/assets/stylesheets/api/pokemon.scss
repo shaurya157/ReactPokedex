@@ -1,0 +1,45 @@
+// Place all the styles related to the api/Pokemon controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$black: #161616;
+$grey: #747474;
+$screen: #d1ccb6;
+$red: #d43316;
+
+.pokedex {
+	display: flex;
+	padding: 20px 0 0 0;
+	height: 100%;
+
+	> ul {
+		padding: 20px 10px 0 0;
+		width: 300px;
+	}
+}
+
+.single-pokemon {
+
+	padding: 5px 10px;
+	border-bottom: 1px solid $grey;
+	cursor: pointer;
+
+	&:hover {
+		-webkit-filter: brightness(210%);
+	}
+
+	img {
+		width: 20px;
+		margin: 0 10px;
+		vertical-align: middle;
+	}
+
+}
+
+.pokemon-detail{
+	background: $grey;
+	color: black;
+	position:fixed;
+	display:flex;
+	align-content: flex-end;
+	margin-left: 310px;
+}
