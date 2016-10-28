@@ -1,13 +1,13 @@
 import React from 'react';
 import {withRouter} from 'react-router';
 
-const PokemonDetail = ({pokemonDetail, children, router}) => {
+const PokemonDetail = ({pokemonDetail, children, router, loading}) => {
 
   const handleClick = (url) => event => {
     router.push(url);
   };
-
-  return (
+  if (loading) return (<div className="loader"></div>);
+  else {return (
     <section className="pokemon-detail">
       <h1>{pokemonDetail.name}</h1>
       <img src={pokemonDetail.image_url}></img>
@@ -24,7 +24,7 @@ const PokemonDetail = ({pokemonDetail, children, router}) => {
 
 
     </section>
-  );
+  );}
 };
 
 export default withRouter(PokemonDetail);

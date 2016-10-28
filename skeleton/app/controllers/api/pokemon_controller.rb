@@ -1,11 +1,13 @@
 class Api::PokemonController < ApplicationController
 
   def index
+    sleep 1
     @pokemon =  Pokemon.all
     render :index
   end
 
   def show
+    sleep 1
     @pokemon = Pokemon.find_by_id(params[:id])
     render :show
   end

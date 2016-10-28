@@ -35,7 +35,7 @@ class PokemonForm extends React.Component {
 
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.errors = this.errors.bind(this);
+    // this.getErrors = this.getErrors.bind(this);
   }
 
   handleSubmit(e){
@@ -53,16 +53,17 @@ class PokemonForm extends React.Component {
     }
     }
 
-  errors(){
-    if(this.props.errors) {
-      console.log('hi');
-      this.props.errors.map(error => <li>{error}</li>);
+  getErrors(){
+    if(this.props.errors.length > 0) {
+      let arr = this.props.errors.slice(1, -1).split(',');
+      return arr.map((el, idx) => <li key={idx}>{el}</li>);
     }
   }
 
   render(){
     return (
       <form className="pokemon-form" onSubmit={this.handleSubmit}>
+        <img src="http://aa-pokedex.herokuapp.com/assets/pokemon-logo.png"></img>
         <input placeholder="Name"
           value={this.state.name}
           type="text"
@@ -98,8 +99,8 @@ class PokemonForm extends React.Component {
           placeholder="Move2" />
 
         <button>Create Pokemon</button>
+        <ul>{this.getErrors()}</ul>
 
-      <ul>{this.errors()}</ul>
       </form>
     );
 

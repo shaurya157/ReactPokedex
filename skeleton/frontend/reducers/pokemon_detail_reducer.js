@@ -3,15 +3,14 @@ import merge from 'lodash/merge';
 
 const defaultState = {
   moves: [],
-  items: [],
-  errors: []
+  items: []
 };
 
 const PokemonDetailReducer = (state = defaultState, action) => {
   Object.freeze(state);
 
   let newState = merge({}, state);
-  
+
   switch (action.type) {
     case RECEIVE_ONE_POKEMON:
       return action.pokemonDetail;
@@ -19,7 +18,6 @@ const PokemonDetailReducer = (state = defaultState, action) => {
       return action.pokemonDetail;
     case RECEIVE_ERRORS:
       newState["errors"] = action.errors;
-      console.log(newState);
       return newState;
     default:
       return state;
